@@ -1,0 +1,13 @@
+.sign__question {
+  text-align: center;
+  margin: 0;
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.21;
+}
+
+@media screen and (max-width: 635px) {
+  .sign__question {
+    margin-top: 20px;
+  }
+}
