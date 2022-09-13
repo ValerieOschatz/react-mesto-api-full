@@ -1,5 +1,5 @@
 {
-  "name": "express-mesto-gha",
+  "name": "mesto",
   "version": "1.0.0",
   "description": "Проект Mesto фронтенд + бэкенд",
   "main": "app.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ValerieOschatz/express-mesto-gha.git"
+    "url": "git+https://github.com/ValerieOschatz/react-mesto-api-full.git"
   },
   "keywords": [],
   "author": "ValerieOschatz",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ValerieOschatz/express-mesto-gha/issues"
+    "url": "https://github.com/ValerieOschatz/react-mesto-api-full/issues"
   },
-  "homepage": "https://github.com/ValerieOschatz/express-mesto-gha#readme",
+  "homepage": "https://github.com/ValerieOschatz/react-mesto-api-full#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "celebrate": "^15.0.1",
