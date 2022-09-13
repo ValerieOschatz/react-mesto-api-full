@@ -1,5 +1,6 @@
 const allowedCors = [
-  'http://localhost:3001',
+  'http://valerie-oschatz.mesto.nomoredomains.sbs',
+  'https://valerie-oschatz.mesto.nomoredomains.sbs',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
