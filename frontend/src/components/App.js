@@ -53,7 +53,6 @@ function App() {
     login(password, email)
     .then((data) => {
       if (data.token) {
-        localStorage.setItem('jwt', data.token);
         setLoggedIn(true);
         setEmail(email);
         history.push('/');
@@ -67,25 +66,21 @@ function App() {
   }
 
   useEffect(() => {
-    const jwt = localStorage.getItem('jwt');
-    if (jwt) {
-      getContent().then((res) => {
-        if (res) {
-          setLoggedIn(true);
-          setEmail(res.email);
-          history.push("/");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-    }
+    getContent().then((res) => {
+      if (res) {
+        setLoggedIn(true);
+        setEmail(res.email);
+        history.push("/");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   }, [history]);
 
   function handleSignOut(){
     setLoggedIn(false);
     setEmail('');
-    localStorage.removeItem('jwt');
   }
 
   useEffect(() => {
