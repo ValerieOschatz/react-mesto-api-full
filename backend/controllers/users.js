@@ -134,7 +134,12 @@ const login = async (req, res, next) => {
       NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
       { expiresIn: '7d' },
     );
-    return res.cookie('jwt', token, { httpOnly: true, maxAge: 3600000 * 24 * 7 }).send({ token });
+    return res.cookie('jwt', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: false,
+      maxAge: 3600000 * 24 * 7,
+    }).send({ token });
   } catch (err) {
     return next(err);
   }
