@@ -136,8 +136,8 @@ const login = async (req, res, next) => {
     );
     return res.cookie('jwt', token, {
       httpOnly: true,
-      secure: NODE_ENV === 'production',
-      sameSite: false,
+      secure: true,
+      sameSite: 'none',
       maxAge: 3600000 * 24 * 7,
     }).send({ token });
   } catch (err) {
