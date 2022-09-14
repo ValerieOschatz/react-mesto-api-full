@@ -96,7 +96,7 @@ class Api {
 }
 
 const api = new Api({
-  url: 'https://api.valerie-oschatz.mesto.nomoredomains.sbs',
+  url: 'http://api.valerie-oschatz.mesto.nomoredomains.sbs',
   headers: {
     'Content-Type': 'application/json'
   }
