@@ -14,7 +14,7 @@ import DeleteCardPopup from './DeleteCardPopup';
 import ImagePopup from './ImagePopup';
 import InfoTooltip from './InfoTooltip';
 import api from '../utils/api';
-import { register, login, getContent } from '../utils/auth';
+import { register, login, getContent, logout } from '../utils/auth';
 import './App.css';
 
 function App() {
@@ -66,7 +66,8 @@ function App() {
   }
 
   useEffect(() => {
-    getContent().then((res) => {
+    getContent()
+    .then((res) => {
       if (res) {
         setLoggedIn(true);
         setEmail(res.email);
@@ -79,8 +80,14 @@ function App() {
   }, [history]);
 
   function handleSignOut(){
-    setLoggedIn(false);
-    setEmail('');
+    logout()
+    .then(() => {
+      setLoggedIn(false);
+      setEmail('');
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   }
 
   useEffect(() => {
