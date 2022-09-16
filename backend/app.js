@@ -8,35 +8,17 @@ const { PORT = 3000 } = process.env;
 const routes = require('./routes');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/cors');
+const defaultError = require('./middlewares/defaultError');
 
 const app = express();
 
 app.use(cookieParser());
 app.use(cors);
 app.use(requestLogger);
-
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
-
 app.use(express.json(), routes);
 app.use(errorLogger);
 app.use(errors());
-
-// eslint-disable-next-line no-unused-vars
-app.use((err, req, res, next) => {
-  const { statusCode = 500, message } = err;
-
-  res
-    .status(statusCode)
-    .send({
-      message: statusCode === 500
-        ? 'На сервере произошла ошибка'
-        : message,
-    });
-});
+app.use(defaultError);
 
 async function main() {
   try {
